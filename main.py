@@ -4,6 +4,7 @@ import sys
 
 import pygame
 from settings import Settings
+from ship import Ship
 
 class AlienInvasion:
     def __init__(self):
@@ -15,6 +16,8 @@ class AlienInvasion:
             (self.settings.screenWidth, self.settings.screenHeight))
         pygame.display.set_caption("Alien Invasion")
 
+        self.ship = Ship(self)
+
 
     def runGame(self):
         """Start the main loop for th egame"""
@@ -25,6 +28,7 @@ class AlienInvasion:
                     sys.exit()
             #Redraw the screen during each pass the trhought loop
             self.screen.fill(self.settings.bgColor)
+            self.ship.blitme()
 
             #make the most recentlu drawn screen vivisible.
             pygame.display.flip()
